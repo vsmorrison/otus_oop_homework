@@ -1,8 +1,4 @@
 import pytest
-# from src.Triangle import Triangle
-# from src.Square import Square
-# from src.Circle import Circle
-# from src.Rectangle import Rectangle
 
 
 def test_check_triangle_exists(create_correct_triangle):
