@@ -5,7 +5,7 @@ def test_check_triangle_exists(create_correct_triangle):
     assert create_correct_triangle.existance
 
 
-def test_check_triangle_doesnt_exists(create_incorrect_triangle):
+def test_check_triangle_doesnt_exist(create_incorrect_triangle):
     assert create_incorrect_triangle.existance is None
 
 
