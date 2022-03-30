@@ -6,11 +6,11 @@ import pytest
 
 
 def test_check_triangle_exists(create_correct_triangle):
-    assert create_correct_triangle.check_triangle_to_exist()
+    assert create_correct_triangle.existance
 
 
 def test_check_triangle_doesnt_exists(create_incorrect_triangle):
-    assert create_incorrect_triangle.check_triangle_to_exist() is None
+    assert create_incorrect_triangle.existance is None
 
 
 def test_check_triangle_has_name(create_correct_triangle):
