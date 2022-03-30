@@ -1,6 +1,4 @@
 import pytest
-
-from src.Figure import Figure
 from src.Triangle import Triangle
 from src.Square import Square
 from src.Circle import Circle
@@ -38,6 +36,16 @@ def test_check_triangle_add_area():
     assert triangle.add_area(square) == 106
 
 
+def test_calculate_triangle_area():
+    triangle = Triangle(2, 2, 2)
+    assert round(triangle.area, 2) == 1.73
+
+
+def test_calculate_triangle_perimeter():
+    triangle = Triangle(2, 2, 2)
+    assert triangle.perimeter == 6
+
+
 def test_check_rectangle_has_name():
     rectangle = Rectangle(1, 2)
     assert hasattr(rectangle, 'name')
@@ -57,6 +65,16 @@ def test_check_rectangle_add_area():
     rectangle = Rectangle(1, 2)
     triangle = Triangle(3, 4, 5)
     assert rectangle.add_area(triangle) == 8
+
+
+def test_calculate_rectangle_area():
+    rectangle = Rectangle(3, 4)
+    assert rectangle.area == 12
+
+
+def test_calculate_rectangle_perimeter():
+    rectangle = Rectangle(5, 8)
+    assert rectangle.perimeter == 26
 
 
 def test_check_square_has_name():
@@ -80,6 +98,16 @@ def test_check_square_add_area():
     assert round(square.add_area(circle), 2) == 414.16
 
 
+def test_calculate_square_area():
+    square = Square(8)
+    assert square.area == 64
+
+
+def test_calculate_square_perimeter():
+    square = Square(7)
+    assert square.perimeter == 28
+
+
 def test_check_circle_has_name():
     circle = Circle(1)
     assert hasattr(circle, 'name')
@@ -99,6 +127,16 @@ def test_check_circle_add_area():
     circle = Circle(1)
     rectangle = Rectangle(5, 2)
     assert round(circle.add_area(rectangle), 2) == 13.14
+
+
+def test_calculate_circle_area():
+    circle = Circle(7)
+    assert round(circle.area, 2) == 153.94
+
+
+def test_calculate_circle_perimeter():
+    circle = Circle(8)
+    assert round(circle.perimeter, 2) == 50.27
 
 
 def test_check_add_area_value_error():
