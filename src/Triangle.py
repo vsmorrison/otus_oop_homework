@@ -14,7 +14,8 @@ class Triangle(Figure):
                      (self.semiperimeter - side_2) *
                      (self.semiperimeter - side_3)) ** 0.5
 
-    def check_triangle_to_exist(self):
+    @property
+    def existance(self):
         if self.side_1 + self.side_2 > self.side_3:
             if self.side_1 + self.side_3 > self.side_2:
                 if self.side_2 + self.side_3 > self.side_1:
