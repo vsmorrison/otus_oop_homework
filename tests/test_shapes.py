@@ -1,145 +1,114 @@
 import pytest
-from src.Triangle import Triangle
-from src.Square import Square
-from src.Circle import Circle
-from src.Rectangle import Rectangle
+# from src.Triangle import Triangle
+# from src.Square import Square
+# from src.Circle import Circle
+# from src.Rectangle import Rectangle
 
 
-def test_check_triangle_exists():
-    triangle = Triangle(3, 4, 5)
-    assert triangle.check_triangle_to_exist()
+def test_check_triangle_exists(create_correct_triangle):
+    assert create_correct_triangle.check_triangle_to_exist()
 
 
-def test_check_triangle_doesnt_exists():
-    triangle = Triangle(1, 2, 3)
-    assert triangle.check_triangle_to_exist() is None
+def test_check_triangle_doesnt_exists(create_incorrect_triangle):
+    assert create_incorrect_triangle.check_triangle_to_exist() is None
 
 
-def test_check_triangle_has_name():
-    triangle = Triangle(1, 2, 3)
-    assert hasattr(triangle, 'name')
+def test_check_triangle_has_name(create_correct_triangle):
+    assert hasattr(create_correct_triangle, 'name')
 
 
-def test_check_triangle_has_perimeter():
-    triangle = Triangle(1, 2, 3)
-    assert hasattr(triangle, 'perimeter')
+def test_check_triangle_has_perimeter(create_correct_triangle):
+    assert hasattr(create_correct_triangle, 'perimeter')
 
 
-def test_check_triangle_has_area():
-    triangle = Triangle(1, 2, 3)
-    assert hasattr(triangle, 'area')
+def test_check_triangle_has_area(create_correct_triangle):
+    assert hasattr(create_correct_triangle, 'area')
 
 
-def test_check_triangle_add_area():
-    triangle = Triangle(3, 4, 5)
-    square = Square(10)
-    assert triangle.add_area(square) == 106
+def test_check_triangle_add_area(create_correct_triangle, create_square):
+    assert create_correct_triangle.add_area(create_square) == 106
 
 
-def test_calculate_triangle_area():
-    triangle = Triangle(2, 2, 2)
-    assert round(triangle.area, 2) == 1.73
+def test_calculate_triangle_area(create_correct_triangle):
+    assert round(create_correct_triangle.area, 2) == 6
 
 
-def test_calculate_triangle_perimeter():
-    triangle = Triangle(2, 2, 2)
-    assert triangle.perimeter == 6
+def test_calculate_triangle_perimeter(create_correct_triangle):
+    assert create_correct_triangle.perimeter == 12
 
 
-def test_check_rectangle_has_name():
-    rectangle = Rectangle(1, 2)
-    assert hasattr(rectangle, 'name')
+def test_check_rectangle_has_name(create_rectangle):
+    assert hasattr(create_rectangle, 'name')
 
 
-def test_check_rectangle_has_perimeter():
-    rectangle = Rectangle(1, 2)
-    assert hasattr(rectangle, 'perimeter')
+def test_check_rectangle_has_perimeter(create_rectangle):
+    assert hasattr(create_rectangle, 'perimeter')
 
 
-def test_check_rectangle_has_area():
-    rectangle = Rectangle(1, 2)
-    assert hasattr(rectangle, 'area')
+def test_check_rectangle_has_area(create_rectangle):
+    assert hasattr(create_rectangle, 'area')
 
 
-def test_check_rectangle_add_area():
-    rectangle = Rectangle(1, 2)
-    triangle = Triangle(3, 4, 5)
-    assert rectangle.add_area(triangle) == 8
+def test_check_rectangle_add_area(create_rectangle, create_correct_triangle):
+    assert create_rectangle.add_area(create_correct_triangle) == 16
 
 
-def test_calculate_rectangle_area():
-    rectangle = Rectangle(3, 4)
-    assert rectangle.area == 12
+def test_calculate_rectangle_area(create_rectangle):
+    assert create_rectangle.area == 10
 
 
-def test_calculate_rectangle_perimeter():
-    rectangle = Rectangle(5, 8)
-    assert rectangle.perimeter == 26
+def test_calculate_rectangle_perimeter(create_rectangle):
+    assert create_rectangle.perimeter == 14
 
 
-def test_check_square_has_name():
-    square = Square(10)
-    assert hasattr(square, 'name')
+def test_check_square_has_name(create_square):
+    assert hasattr(create_square, 'name')
 
 
-def test_check_square_has_perimeter():
-    square = Square(10)
-    assert hasattr(square, 'perimeter')
+def test_check_square_has_perimeter(create_square):
+    assert hasattr(create_square, 'perimeter')
 
 
-def test_check_square_has_area():
-    square = Square(10)
-    assert hasattr(square, 'area')
+def test_check_square_has_area(create_square):
+    assert hasattr(create_square, 'area')
 
 
-def test_check_square_add_area():
-    square = Square(10)
-    circle = Circle(10)
-    assert round(square.add_area(circle), 2) == 414.16
+def test_check_square_add_area(create_square, create_circle):
+    assert round(create_square.add_area(create_circle), 2) == 414.16
 
 
-def test_calculate_square_area():
-    square = Square(8)
-    assert square.area == 64
+def test_calculate_square_area(create_square):
+    assert create_square.area == 100
 
 
-def test_calculate_square_perimeter():
-    square = Square(7)
-    assert square.perimeter == 28
+def test_calculate_square_perimeter(create_square):
+    assert create_square.perimeter == 40
 
 
-def test_check_circle_has_name():
-    circle = Circle(1)
-    assert hasattr(circle, 'name')
+def test_check_circle_has_name(create_circle):
+    assert hasattr(create_circle, 'name')
 
 
-def test_check_circle_has_perimeter():
-    circle = Circle(1)
-    assert hasattr(circle, 'perimeter')
+def test_check_circle_has_perimeter(create_circle):
+    assert hasattr(create_circle, 'perimeter')
 
 
-def test_check_circle_has_area():
-    circle = Circle(1)
-    assert hasattr(circle, 'area')
+def test_check_circle_has_area(create_circle):
+    assert hasattr(create_circle, 'area')
 
 
-def test_check_circle_add_area():
-    circle = Circle(1)
-    rectangle = Rectangle(5, 2)
-    assert round(circle.add_area(rectangle), 2) == 13.14
+def test_check_circle_add_area(create_circle, create_rectangle):
+    assert round(create_circle.add_area(create_rectangle), 2) == 324.16
 
 
-def test_calculate_circle_area():
-    circle = Circle(7)
-    assert round(circle.area, 2) == 153.94
+def test_calculate_circle_area(create_circle):
+    assert round(create_circle.area, 2) == 314.16
 
 
-def test_calculate_circle_perimeter():
-    circle = Circle(8)
-    assert round(circle.perimeter, 2) == 50.27
+def test_calculate_circle_perimeter(create_circle):
+    assert round(create_circle.perimeter, 2) == 62.83
 
 
-def test_check_add_area_value_error():
-    circle = Circle(1)
+def test_check_add_area_value_error(create_circle):
     with pytest.raises(ValueError):
-        circle.add_area('lalala')
+        create_circle.add_area('lalala')
