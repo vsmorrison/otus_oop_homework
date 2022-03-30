@@ -28,5 +28,3 @@ def create_rectangle():
 @pytest.fixture(scope='module')
 def create_square():
     return Square(10)
-
-
