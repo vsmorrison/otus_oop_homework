@@ -8,11 +8,6 @@ class Triangle(Figure):
         self.side_2 = side_2
         self.side_3 = side_3
         self.name = 'triangle'
-        self.perimeter = side_1 + side_2 + side_3
-        self.semiperimeter = self.perimeter / 2
-        self.area = (self.semiperimeter * (self.semiperimeter - side_1) *
-                     (self.semiperimeter - side_2) *
-                     (self.semiperimeter - side_3)) ** 0.5
 
     @property
     def existance(self):
@@ -26,3 +21,18 @@ class Triangle(Figure):
                 return None
         else:
             return None
+
+    @property
+    def get_perimeter(self):
+        return self.side_1 + self.side_2 + self.side_3
+
+    @property
+    def get_semiperimeter(self):
+        return self.get_perimeter / 2
+
+    @property
+    def get_area(self):
+        return (self.get_semiperimeter *
+                (self.get_semiperimeter - self.side_1) *
+                (self.get_semiperimeter - self.side_2) *
+                (self.get_semiperimeter - self.side_3)) ** 0.5
